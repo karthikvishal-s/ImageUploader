@@ -49,6 +49,9 @@ export default function Home() {
       body: formData
     }).then(r=>r.json())
 
+    setImageSrc(data.secure_url)
+    setUploadData(data)
+
     console.log('data',data)
   }
 
@@ -85,9 +88,15 @@ export default function Home() {
             </p>
           )}
 
+          
+
           {uploadData && (
-            <code><pre>{JSON.stringify(uploadData, null, 2)}</pre></code>
-          )}
+            <div>
+            <p>Image Uploaded Successfully</p>
+            {uploadData.secure_url}
+          </div>
+          )
+        }
         </form>
 
 
@@ -97,9 +106,7 @@ export default function Home() {
 
       </main>
 
-      <footer className={styles.footer}>
-        <p>Find the tutorial on <a href="https://spacejelly.dev/">spacejelly.dev</a>!</p>
-      </footer>
+     
     </div>
   )
 }
