@@ -29,7 +29,10 @@ export default function Home() {
 
   async function handleOnSubmit(event) {
     event.preventDefault();
-    console.log(event.currentTarget)
+    const form = event.currentTarget
+    const fileInput = Array.from(form.elements).find(({ name })=>name === 'file')
+    console.log(fileInput)
+    //console.log(event.currentTarget)
   }
 
   return (
